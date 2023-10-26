@@ -118,6 +118,4 @@ Fine-tune the top and bottom padding of your block to ensure it fits neatly with
 
 ![Padding Adjustment](public/padding.png)
 
-By following these simple steps, you can effectively customize the Vehicles Post Loop block to meet your specific design and content requirements. If you have any questions or need further assistance, please feel free to reach out to our support team.
-
-
+By following these simple steps, you can effectively customize the Vehicles Post Loop block to meet your specific design and content requirements. If you have any questions, reach out to Sean at seanstobo@gmail.com
