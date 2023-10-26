@@ -61,7 +61,7 @@ wp.blocks.registerBlockType("green-blocks/vehicles-post-loop", {
     (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
       async function fetchVehicles() {
         try {
-          const res = await fetch("/wp-json/wp/v2/vehicle?per_page=5");
+          const res = await fetch("/?rest_route=/wp/v2/vehicle&per_page=5");
           const data = await res.json();
           const vehicleData = await Promise.all(data.map(async vehicle => {
             try {
