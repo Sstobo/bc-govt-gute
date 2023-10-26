@@ -94,14 +94,14 @@ Our block comes with two distinct styles: 'Default' and 'Dark'. Select the one t
 - **Default Style**: A light and clean look suitable for most websites.
 - **Dark Style**: Ideal for darker-themed websites or for creating a standout section.
 
-![Style Selection]('./public/light-style.png')
-![Style Selection]('./public/dark-style.png')
+![Style Selection](public/light-style.png)
+![Style Selection](public/dark-style.png)
 
 ### Step 2: Select Button Style
 
 Customize the button's appearance within the block using the 'Button Style' dropdown. Choose a style that complements your site's design and enhances user experience.
 
-![Button Style Dropdown]('./public/button.png')
+![Button Style Dropdown](public/button.png)
 
 ### Step 3: Set Post Width
 
@@ -110,13 +110,13 @@ Decide how many posts you want to display per row. You can choose to have your p
 - **Full Screen**: Maximizes the use of space, ideal for showcasing large images or detailed content.
 - **2 or 3 Columns**: Perfect for a more compact display or when you want to feature multiple posts in a row.
 
-![Post Width Selection]('./public/width.png')
+![Post Width Selection](public/width.png)
 
 ### Step 4: Adjust Padding
 
 Fine-tune the top and bottom padding of your block to ensure it fits neatly within your page layout. Proper padding can significantly enhance the visual appeal and readability of your content.
 
-![Padding Adjustment]('./public/padding.png')
+![Padding Adjustment](public/padding.png)
 
 By following these simple steps, you can effectively customize the Vehicles Post Loop block to meet your specific design and content requirements. If you have any questions or need further assistance, please feel free to reach out to our support team.
 
