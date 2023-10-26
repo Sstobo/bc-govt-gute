@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name: Green Blocks Gutenberg Library
+  Plugin Name: Vehicle Post Loop Gutenberg Block
   Version: 1.0
   Author: Sean Stobo
   Author URI: https://github.com/sstobo
