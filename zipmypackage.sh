@@ -9,5 +9,8 @@ DIR_TO_ZIP="."
 # Set the output file name
 OUTPUT_FILE="./$PACKAGE_NAME.zip"
 
-# This will zip the directory
-zip -r "$OUTPUT_FILE" "$DIR_TO_ZIP" 
+# Exclude the node_modules directory
+EXCLUDE="node_modules/*"
+
+# This will zip the directory excluding the node_modules
+zip -r "$OUTPUT_FILE" "$DIR_TO_ZIP" -x "$EXCLUDE"
