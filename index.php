@@ -12,6 +12,12 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 require_once plugin_dir_path(__FILE__) . 'vehicle-post.php';
 require_once plugin_dir_path(__FILE__) . 'vehicle-block.php';
 
-function my_custom_admin_styles() {
-  wp_enqueue_style( 'my-admin-style', plugins_url( 'admin.css', __FILE__ ) );
+function url_helper() {
+  wp_enqueue_script( 'url-helper', plugins_url( '/url-helper.js', __FILE__ ), array(), '1.0', true );
+
+  $data = array(
+      'rootUrl' => get_bloginfo('url'),
+  );
+  wp_localize_script( 'url-helper', 'locateUrl', $data );
 }
+add_action( 'wp_enqueue_scripts', 'url_helper' );

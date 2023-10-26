@@ -72,13 +72,15 @@ class GreenBlocks {
                 }
 
                 $thumbnail_id = get_post_thumbnail_id();
+                $thumbnail_url = get_the_post_thumbnail_url();
                 $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true) ?: 'An image of: ' . get_the_title();
 
-                
                 $output .= '<div class="vehicle-post border rounded-md py-8 px-5">';
-                $output .= '<a href="' . get_the_permalink() . '">';
-                $output .= '<img alt="' . $alt_text . '" src="' . get_the_post_thumbnail_url() . '" class="object-contain rounded-md hover:scale-105 transition-all duration-300 ease-in-out max-h-32">';
-                $output .= '</a>';
+                if ( $thumbnail_url ) {
+                    $output .= '<a href="' . $thumbnail_url . '">';
+                    $output .= '<img alt="' . $alt_text . '" src="' . get_the_post_thumbnail_url() . '" class="object-contain rounded-md hover:scale-105 transition-all duration-300 ease-in-out max-h-32">';
+                    $output .= '</a>';
+                }
                 $output .= '<h4 class="my-0 pb-3">' . get_the_title() . '</h4>';
                 if ($terms[0]->name) {
                     $output .= '<a class="!no-underline" href="'. $term_link . '"><p class="text-sm  mb-4 w-fit py-1 px-2 bg-slate-500 text-slate-50 rounded-md duration-200 ease-in-out transition hover:bg-slate-700">'. $terms[0]->name . '</p></a>';

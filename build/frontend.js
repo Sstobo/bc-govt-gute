@@ -59,12 +59,32 @@ wp.blocks.registerBlockType("green-blocks/vehicles-post-loop", {
     } = props;
     const [vehicles, setVehicles] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-      fetch("http://bc-govt-test.local/wp-json/wp/v2/vehicle?per_page=5").then(response => response.json()).then(data => {
-        Promise.all(data.map(vehicle => fetch(vehicle._links["wp:featuredmedia"][0].href).then(resp => resp.json()).then(image => ({
-          ...vehicle,
-          featured_image: image.source_url
-        })))).then(vehiclesWithImages => setVehicles(vehiclesWithImages));
-      });
+      async function fetchVehicles() {
+        try {
+          const res = await fetch("/wp-json/wp/v2/vehicle?per_page=5");
+          const data = await res.json();
+          const vehicleData = await Promise.all(data.map(async vehicle => {
+            try {
+              const res = await fetch(vehicle._links["wp:featuredmedia"][0].href);
+              const data = await res.json();
+              return {
+                ...vehicle,
+                featured_image: data.source_url
+              };
+            } catch (e) {
+              /* In case there is no image, set featured_image property as null */
+              return {
+                ...vehicle,
+                featured_image: null
+              };
+            }
+          }));
+          setVehicles(vehicleData);
+        } catch (e) {
+          // log error appropriately
+        }
+      }
+      fetchVehicles();
     }, []);
     const onGridWidthChange = grid_width => {
       props.setAttributes({
@@ -172,7 +192,7 @@ wp.blocks.registerBlockType("green-blocks/vehicles-post-loop", {
     }, vehicles && vehicles.map(vehicle => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: vehicle.id,
       className: "border rounded-md p-5"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    }, vehicle.featured_image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: vehicle.link
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "object-contain rounded-md hover:scale-105 transition-all duration-300 ease-in-out max-h-32",
